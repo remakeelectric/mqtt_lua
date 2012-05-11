@@ -327,7 +327,6 @@ function MQTT.client:handler()                                    -- Public API
       -- Parse individual messages (each must be at least 2 bytes long)
 
       while (index < #buffer) do
-        -- local message_length = string.byte(buffer, index + 1) + 2
         local fixed_header_length, remaining_message_length = self:calculate_lengths(buffer, index)
         local message_length = fixed_header_length + remaining_message_length
         
